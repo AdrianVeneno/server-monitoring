@@ -380,7 +380,9 @@ MIME-Version: 1.0
 EOF
 }
 
-if [ $INFO = "true" ]; then
+if [ -z ${INFO+x} ]; then
+    INFO="false"
+fi
 	echo "CPU:"
 	get_cpu_usage
 	echo "MEMORY:"
